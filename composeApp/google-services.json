@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430950204939",
+    "project_id": "servicercapp",
+    "storage_bucket": "servicercapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430950204939:android:ca8e4adb7352ca46e5e90e",
+        "android_client_info": {
+          "package_name": "com.eddymy1304.servicercapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqbCm2ZmLPNra0m726ovNnTl5ukBIHeLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

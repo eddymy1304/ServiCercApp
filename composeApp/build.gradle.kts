@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.googleServices)
 }
 
 kotlin {
@@ -19,7 +20,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -27,9 +28,9 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -40,13 +41,15 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.firebase.analytics)
+            implementation(libs.firebase.firestore)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -55,9 +58,14 @@ kotlin {
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+
+            implementation(project.dependencies.platform(libs.firebase.bom))
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+
+            implementation(libs.firebase.analytics)
+            implementation(libs.firebase.firestore)
         }
     }
 }
